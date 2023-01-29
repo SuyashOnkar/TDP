@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="remove_default.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="heading">
+      <div class="title">
+        <h1>My Library</h1>
+      </div>
+      <div class="addBookButton">
+        <button id="addBookButton">
+          <span class="material-symbols-outlined">add </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero" id="hero">
+      <div class="books" id="books">
+        <template id="newBook">
+          <div class="book" data-num="">
+            <p class="bookTitle"></p>
+            <p class="bookAuthor"></p>
+            <p class="bookPages"></p>
+            <button class="hasRead">Not Read</button>
+            <button class="remove">Remove</button>
+          </div>
+        </template>
+        <div id="newBook">
+          <div class="book" data-num="">
+            <p class="bookTitle">JKR</p>
+            <p class="bookAuthor">Lord of the Rings</p>
+            <p class="bookPages">154</p>
+            <button class="hasRead">Not Read</button>
+            <button class="remove">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="addBookPopup" class="dnone">
+      <form>
+        <div class="author">
+          <label for="author">Author</label><br />
+          <input type="text" id="author" required /><br />
+        </div>
+        <div class="title">
+          <label for="title">Title</label><br />
+          <input type="text" id="title" required /><br />
+        </div>
+        <div class="pages">
+          <label for="pages">Pages</label><br />
+          <input type="number" id="pages" required /><br />
+        </div>
+        <div class="read">
+          <label for="read">Read</label>
+          <input type="checkbox" id="read" /><br />
+        </div>
+        <input type="submit" id="submitBook" />
+        <button id="closeForm">X</button>
+      </form>
+    </div>
+  </body>
+</html>

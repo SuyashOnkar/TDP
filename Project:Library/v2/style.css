@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100;400;700&family=Sofia+Sans:wght@200;400;600;900&display=swap");
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: "Sofia Sans", sans-serif;
+}
+
+.dblock {
+  display: block;
+}
+
+.dnone {
+  display: none;
+}
+
+.heading {
+  margin-top: 50px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.heading button {
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: 25%;
+}
+.heading button:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+  cursor: pointer;
+}
+.heading span {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+#addBookPopup {
+  border: 1px solid white;
+  width: 500px;
+  height: 500px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+#addBookPopup form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  width: 100%;
+}
+#addBookPopup form input[type=text],
+#addBookPopup form input[type=number] {
+  width: 100%;
+  background: none;
+  background-color: rgba(255, 255, 255, 0.075);
+  border: 0;
+  padding: 10px 10px;
+  color: white;
+  border-radius: 10px;
+}
+#addBookPopup form input[type=text]:hover,
+#addBookPopup form input[type=number]:hover,
+#addBookPopup form input[type=text]:active,
+#addBookPopup form input[type=number]:active {
+  background-color: rgba(255, 255, 255, 0.213);
+}
+#addBookPopup form label {
+  font-size: 1.5rem;
+}
+#addBookPopup form input[type=submit] {
+  padding: 10px 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+}
+#addBookPopup form #closeForm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: 0;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.hero .books {
+  border: solid 1px white;
+  min-width: 500px;
+  min-height: 500px;
+  margin: 10px 5px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.hero .books .book {
+  border: 1px solid white;
+  padding: 10px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+.hero .books .book .bookTitle {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.hero .books .book .hasRead {
+  background: none;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+.hero .books .book .notRead {
+  background-color: rgba(255, 0, 0, 0.441);
+}
+.hero .books .book .read {
+  background-color: rgba(172, 255, 47, 0.548);
+}
+
+/*# sourceMappingURL=style.css.map */

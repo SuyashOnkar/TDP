@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Your Library</h1>
+    </div>
+    <div class="addBook">
+      <button id="addBook">Add Book</button>
+    </div>
+
+    <div id="addBookForm" class="hidden">
+      <label for="author">Author</label><br />
+      <input type="text" id="author" /><br />
+      <label for="title">Title</label><br />
+      <input type="text" id="title" /><br />
+      <label for="pages">Pages</label><br />
+      <input type="number" id="pages" /><br />
+      <label for="read">Read</label>
+      <input type="checkbox" id="read" /><br />
+      <input type="submit" id="submitBook" />
+    </div>
+
+    <div id="overlay"></div>
+    <div class="books" id="books">
+      <div class="book" id="book">
+        <h5>sample author</h5>
+        <h4>Title</h4>
+        <p>345 pages</p>
+        <div class="readStatus">
+          <input type="checkbox" class="checkRead" id="checkRead" />
+          <p class="readStatus">Not read</p>
+        </div>
+        <button class="delete" id="delete">
+          <span class="material-symbols-outlined"> delete </span>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
