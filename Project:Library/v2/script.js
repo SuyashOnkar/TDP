@@ -48,15 +48,16 @@ form.addEventListener("submit", (e) => {
   Library.push(book);
   createBookElements();
   hasReadButton();
+  removeButton();
   form.reset();
 });
 
 // ********************************************************************
 // USING TEMPLATE TO CREATE BOOK ELEMENTS FROM LIBRARY ARRAY
 // ********************************************************************
+const template = document.getElementById("newBook");
+const books_area = document.getElementById("books");
 function createBookElements() {
-  const template = document.getElementById("newBook");
-  const books_area = document.getElementById("books");
   let e = Library[Library.length - 1];
   const clone_template = template.content.cloneNode(true);
   const p = clone_template.querySelectorAll("p");
@@ -87,6 +88,15 @@ function hasReadButton() {
       } else {
         e.textContent = "Read";
       }
+    });
+  });
+}
+
+function removeButton() {
+  const removeButtons = document.querySelectorAll(".remove");
+  Array.from(removeButtons).forEach((e) => {
+    e.addEventListener("click", () => {
+      books_area.removeChild(e.parentNode);
     });
   });
 }
