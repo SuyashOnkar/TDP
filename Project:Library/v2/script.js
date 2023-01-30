@@ -57,11 +57,14 @@ form.addEventListener("submit", (e) => {
 // ********************************************************************
 const template = document.getElementById("newBook");
 const books_area = document.getElementById("books");
+let i = 0;
+
 function createBookElements() {
   let e = Library[Library.length - 1];
   const clone_template = template.content.cloneNode(true);
   const p = clone_template.querySelectorAll("p");
   const b = clone_template.querySelectorAll("button");
+  const div = clone_template.querySelector(".book");
   p[0].textContent = e.author;
   p[1].textContent = e.title;
   p[2].textContent = e.pages + " pages";
@@ -73,6 +76,9 @@ function createBookElements() {
     b[0].classList.add("notRead");
     b[0].textContent = "Not Read";
   }
+
+  div.setAttribute("data-num", i);
+  i++;
 
   books_area.appendChild(clone_template);
 }
@@ -96,6 +102,8 @@ function removeButton() {
   const removeButtons = document.querySelectorAll(".remove");
   Array.from(removeButtons).forEach((e) => {
     e.addEventListener("click", () => {
+      let num = parseInt(e.parentNode.getAttribute("data-num"));
+      Library.splice(num, 1);
       books_area.removeChild(e.parentNode);
     });
   });
