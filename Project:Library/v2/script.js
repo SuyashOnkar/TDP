@@ -27,14 +27,17 @@ function Book(author, title, pages, hasRead) {
   this.hasRead = hasRead;
 }
 
+Book.prototype.readStatus = function () {
+  if (Book.hasRead()) {
+    return true;
+  }
+};
+
 /*****************************************************
  Retrieve data from the form and push to Library
  *****************************************************/
 const submitBook = document.getElementById("submitBook");
 const form = document.querySelector("form");
-
-//Initialize count to 0 (to tag the books)
-let count = 0;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -57,9 +60,10 @@ form.addEventListener("submit", (e) => {
 // ********************************************************************
 const template = document.getElementById("newBook");
 const books_area = document.getElementById("books");
+
 let i = 0;
 
-function createBookElements() {
+function createBookElements_old() {
   let e = Library[Library.length - 1];
   const clone_template = template.content.cloneNode(true);
   const p = clone_template.querySelectorAll("p");
@@ -81,6 +85,33 @@ function createBookElements() {
   i++;
 
   books_area.appendChild(clone_template);
+}
+
+function createBookElements() {
+  books_area.removeChild(".book");
+
+  Library.forEach((e) => {
+    const clone_template = template.content.cloneNode(true);
+    const p = clone_template.querySelectorAll("p");
+    const b = clone_template.querySelectorAll("button");
+    const div = clone_template.querySelector(".book");
+    p[0].textContent = e.author;
+    p[1].textContent = e.title;
+    p[2].textContent = e.pages + " pages";
+
+    if (e.hasRead) {
+      b[0].classList.add("read");
+      b[0].textContent = "Read";
+    } else {
+      b[0].classList.add("notRead");
+      b[0].textContent = "Not Read";
+    }
+
+    div.setAttribute("data-num", i);
+    i++;
+
+    books_area.appendChild(clone_template);
+  });
 }
 
 function hasReadButton() {
