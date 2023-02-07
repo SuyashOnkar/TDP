@@ -55,8 +55,8 @@ body {
   padding: 20px;
   width: 100%;
 }
-#addBookPopup form input[type="text"],
-#addBookPopup form input[type="number"] {
+#addBookPopup form input[type=text],
+#addBookPopup form input[type=number] {
   width: 100%;
   background: none;
   background-color: rgba(255, 255, 255, 0.075);
@@ -65,16 +65,16 @@ body {
   color: white;
   border-radius: 10px;
 }
-#addBookPopup form input[type="text"]:hover,
-#addBookPopup form input[type="number"]:hover,
-#addBookPopup form input[type="text"]:active,
-#addBookPopup form input[type="number"]:active {
+#addBookPopup form input[type=text]:hover,
+#addBookPopup form input[type=number]:hover,
+#addBookPopup form input[type=text]:active,
+#addBookPopup form input[type=number]:active {
   background-color: rgba(255, 255, 255, 0.213);
 }
 #addBookPopup form label {
   font-size: 1.5rem;
 }
-#addBookPopup form input[type="submit"] {
+#addBookPopup form input[type=submit] {
   padding: 10px 5px;
   text-transform: uppercase;
   cursor: pointer;
@@ -127,6 +127,4 @@ body {
 }
 .hero .books .book .read {
   background-color: rgba(172, 255, 47, 0.548);
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=input.css.map */

@@ -27,10 +27,8 @@ function Book(author, title, pages, hasRead) {
   this.hasRead = hasRead;
 }
 
-Book.prototype.readStatus = function () {
-  if (Book.hasRead()) {
-    return true;
-  }
+Book.prototype.changeReadStatus = function () {
+  this.hasRead = !this.hasRead;
 };
 
 /*****************************************************
@@ -63,7 +61,7 @@ const books_area = document.getElementById("books");
 
 let i = 0;
 
-function createBookElements_old() {
+function createBookElements() {
   let e = Library[Library.length - 1];
   const clone_template = template.content.cloneNode(true);
   const p = clone_template.querySelectorAll("p");
@@ -87,55 +85,38 @@ function createBookElements_old() {
   books_area.appendChild(clone_template);
 }
 
-function createBookElements() {
-  books_area.removeChild(".book");
-
-  Library.forEach((e) => {
-    const clone_template = template.content.cloneNode(true);
-    const p = clone_template.querySelectorAll("p");
-    const b = clone_template.querySelectorAll("button");
-    const div = clone_template.querySelector(".book");
-    p[0].textContent = e.author;
-    p[1].textContent = e.title;
-    p[2].textContent = e.pages + " pages";
-
-    if (e.hasRead) {
-      b[0].classList.add("read");
-      b[0].textContent = "Read";
-    } else {
-      b[0].classList.add("notRead");
-      b[0].textContent = "Not Read";
-    }
-
-    div.setAttribute("data-num", i);
-    i++;
-
-    books_area.appendChild(clone_template);
-  });
-}
-
 function hasReadButton() {
   const readButtons = document.querySelectorAll(".hasRead");
-  Array.from(readButtons).forEach((e) => {
-    e.addEventListener("click", () => {
-      e.classList.toggle("notRead");
-      e.classList.toggle("read");
-      if (e.classList.contains("notRead")) {
-        e.textContent = "Not Read";
-      } else {
-        e.textContent = "Read";
-      }
-    });
+  const last = readButtons[readButtons.length - 1];
+  last.addEventListener("click", () => {
+    const selectedBook_num = parseInt(last.parentNode.getAttribute("data-num"));
+    let selectedBook = Library[selectedBook_num];
+    selectedBook.changeReadStatus();
+    console.log(selectedBook);
+
+    last.classList.toggle("notRead");
+    last.classList.toggle("read");
+    if (last.classList.contains("notRead")) {
+      last.textContent = "Not Read";
+    } else {
+      last.textContent = "Read";
+    }
   });
 }
 
 function removeButton() {
   const removeButtons = document.querySelectorAll(".remove");
-  Array.from(removeButtons).forEach((e) => {
-    e.addEventListener("click", () => {
-      let num = parseInt(e.parentNode.getAttribute("data-num"));
-      Library.splice(num, 1);
-      books_area.removeChild(e.parentNode);
-    });
+  const last = removeButtons[removeButtons.length - 1];
+  last.addEventListener("click", () => {
+    const name = last.parentNode.querySelectorAll("p")[1].value;
+    const index = Library.findIndex((book) => book.name === name);
+    // const searchObject = Library.find((car) => car.model == "X5");
+
+    Library.splice(index, 1);
+    books_area.removeChild(last.parentNode);
+
+    // let num = parseInt(e.parentNode.getAttribute("data-num"));
+    // Library.splice(num, 1);
+    // books_area.removeChild(e.parentNode);
   });
 }
