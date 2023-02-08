@@ -1,1 +1,23 @@
-/*# sourceMappingURL=style.css.map */
+.grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border: 1px solid;
+  display: grid;
+  grid-template: 1fr 1fr 1fr/1fr 1fr 1fr;
+}
+.grid .boxes {
+  border: 1px solid black;
+  position: relative;
+}
+.grid .boxes * {
+  font-size: 5rem;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}/*# sourceMappingURL=style.css.map */
